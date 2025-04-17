@@ -1,8 +1,8 @@
 :root {
     --bg-color: #f2f2f2;
-    --text-color-black: #000;
-    --text-color-white: #fff;
+    --text-color: #000;
     --card-bg: #fff;
+    --nav-bg: #28a745;
     --button-bg: #28a745;
     --button-hover: #218838;
 }
@@ -15,9 +15,10 @@
 }
 
 .dark-mode {
-    --bg-color: #121212;
-    --text-color: #f0f0f0;
+    --bg-color: rgba(0, 0, 0, 0.9);
+    --text-color: #fff;
     --card-bg: #1e1e1e;
+    --nav-bg: #007bff;
     --button-bg: #007bff;
     --button-hover: #0056b3;
 }
@@ -27,7 +28,7 @@ nav {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--button-bg);
+    background-color: var(--nav-bg);
     height: 60px;
     width: 100%;
     padding: 10px 30px;
@@ -48,45 +49,37 @@ nav .logo-title img {
 nav .logo-title h2 {
     font-weight: 700;
     font-style: normal;
-    color: var(--text-color-white);
-}
-
-nav .toggle-mode {
-    float: right;
-}
-
-
-body {
-    /* background-image: url(./bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover; */
-    background-color: var(--bg-color);
-    height: 100vh;
-    width: 100%;
-    color: var(--text-color-black);
-    transition: background 0.3s, color 0.3s;
+    color: var(--text-color);
+    text-align: center;
 }
 
 nav button {
     padding: 10px 20px;
-    background-color: var(--text-color-black);
-    color: white;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-weight: bold;
+    text-align: center;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: var(--text-color-white);
-    color: #000;
+nav button:hover {
+    background-color: var(--text-color);
+    color: var(--card-bg);
 }
 
+body {
+    background-color: var(--bg-color);
+    height: 100vh;
+    width: 100%;
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+}
+
+
 .container {
-    background: var(--card-bg);
     padding: 20px 60px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: 100%;
 }
 
 .input-group {
@@ -119,13 +112,13 @@ input[type="number"] {
     cursor: pointer;
 }
 
-button:hover {
+.container button:hover {
     background-color: var(--button-hover);
 }
 
 #AddBtn {
-    margin-top: 20px;
     float: right;
+    margin-top: 20px;
 }
 
 table {
@@ -148,4 +141,108 @@ td {
 
 .change div {
     margin: 5px 0;
+}
+
+.bottom-btn {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+
+@media (max-width:768px) {
+
+    nav .logo-title h2 {
+        font-size: 18px;
+    }
+
+    nav .logo-title img {
+        height: 40px;
+    }
+
+    nav button {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+
+    .container {
+        font-size: 14px;
+    }
+
+    .container button {
+        font-size: 12px;
+    }
+
+}
+
+@media (max-width:530px) {
+
+    nav .logo-title {
+        gap: 10px;
+    }
+
+    nav .logo-title h2 {
+        font-size: 16px;
+    }
+
+    nav .logo-title img {
+        height: 35px;
+    }
+
+    nav button {
+        padding: 7px 10px;
+        font-size: 10px;
+    }
+
+    .container {
+        font-size: 12px;
+    }
+
+    .container button {
+        font-size: 10px;
+    }
+
+    .input-group label {
+        width: 40%;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        width: 60%;
+    }
+
+}
+
+@media (max-width:450px) {
+
+    nav .logo-title h2 {
+        font-size: 14px;
+    }
+
+    nav .logo-title img {
+        height: 30px;
+    }
+
+    nav button {
+        padding: 5px 8px;
+        font-size: 9px;
+    }
+
+    .container {
+        font-size: 10px;
+    }
+
+    .container button {
+        font-size: 8px;
+    }
+
+    .container .input-group input {
+        font-size: 10px;
+    }
+
+    .container .input-group input::placeholder {
+        font-size: 10px;
+    }
+
 }

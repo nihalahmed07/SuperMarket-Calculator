@@ -69,9 +69,11 @@
             <label for="moneyGiven">Money Given (₹):</label>
             <input type="number" id="moneyGiven" placeholder="Enter the money... (₹)" />
         </div>
-        <button onclick="calculateChange()">Calculate Change</button>
-        <button onclick="window.print()">Print Invoice</button>
-        <button onclick="downloadPDF()">Download PDF</button>
+        <div class="bottom-btn">
+            <button onclick="calculateChange()">Calculate Change</button>
+            <button onclick="window.print()">Print Invoice</button>
+            <button onclick="downloadPDF()">Download PDF</button>
+        </div>
 
         <div class="change" id="changeOutput"></div>
     </div>
