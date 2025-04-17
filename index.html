@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Fresh Supermarket Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./logo.jpg" type="image/jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="logo-title">
+            <img src="./logo-1.png" alt="Logo">
+            <h2>Fresh Supermarket Calculator</h2>
+        </div>
+
+        <button class="toggle-mode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </nav>
+    <div class="container">
+
+        <div class="input-group">
+            <label for="itemName">Item Name:</label>
+            <input type="text" id="itemName" placeholder="Item Name" required />
+        </div>
+
+        <div class="input-group">
+            <label for="itemPrice">Item Price (₹):</label>
+            <input type="number" id="itemPrice" placeholder="Price " required />
+        </div>
+
+        <div class="input-group">
+            <label for="itemQty">Quantity:</label>
+            <input type="number" id="itemQty" placeholder="Quantity" value="1" required />
+        </div>
+
+        <button id="AddBtn" onclick="addItem()">Add Item</button>
+
+        <table id="itemTable">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div class="summary">
+            <p><strong>Subtotal:</strong> ₹<span id="subtotal">0</span></p>
+            <div class="input-group">
+                <label for="discount">Discount (₹ or %):</label>
+                <input type="text" id="discount" placeholder="e.g., 10 or 10%" oninput="renderItems()" />
+            </div>
+            <p><strong>Final Amount:</strong> ₹<span id="finalAmount">0</span></p>
+        </div>
+
+        <div class="input-group">
+            <label for="moneyGiven">Money Given (₹):</label>
+            <input type="number" id="moneyGiven" placeholder="Enter the money... (₹)" />
+        </div>
+        <button onclick="calculateChange()">Calculate Change</button>
+        <button onclick="window.print()">Print Invoice</button>
+        <button onclick="downloadPDF()">Download PDF</button>
+
+        <div class="change" id="changeOutput"></div>
+    </div>
+
+    <audio id="ding" src="https://www.soundjay.com/buttons/sounds/button-29.mp3"></audio>
+    <script src="./app.js"></script>
+</body>
+
+</html>
